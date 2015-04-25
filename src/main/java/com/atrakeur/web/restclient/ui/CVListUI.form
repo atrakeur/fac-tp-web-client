@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.atrakeur.web.restclient.ui.CVListUI">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="8d6b" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="12c64" class="javax.swing.JButton" binding="refreshButton">
+            <constraints border-constraint="East"/>
+            <properties>
+              <text value="refresh"/>
+            </properties>
+          </component>
+          <component id="40d7a" class="javax.swing.JButton" binding="createButton">
+            <constraints border-constraint="West"/>
+            <properties>
+              <text value="Create"/>
+            </properties>
+          </component>
+          <component id="75b17" class="javax.swing.JTextField" binding="urlTextField" default-binding="true">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <text value="url"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <scrollpane id="77d9a">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <preferredSize width="400" height="500"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="8d73e" binding="cvListPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints/>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+        </children>
+      </scrollpane>
+    </children>
+  </grid>
+</form>
