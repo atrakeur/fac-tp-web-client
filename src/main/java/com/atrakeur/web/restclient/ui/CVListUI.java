@@ -53,6 +53,23 @@ public class CVListUI {
                 LoadingDialog.show(application.getFrame(), task);
             }
         });
+
+        createButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                final JFrame frame = new JFrame();
+                frame.add(new CVUI(application, frame, CVListUI.this).getPanel());
+                frame.pack();
+                frame.setLocationRelativeTo(application.getFrame());
+                frame.setVisible(true);
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        frame.toFront();
+                    }
+                });
+            }
+        });
     }
 
     public Container getPanel() {
@@ -60,14 +77,22 @@ public class CVListUI {
     }
 
     public void setCVList(CVList list) {
+        cvListPanel.invalidate();
+
         cvListPanel.removeAll();
+
+        cvListPanel.setLayout(new BoxLayout(cvListPanel, BoxLayout.Y_AXIS));
 
         for (CV cv :list.getListCV()) {
             CVLineUI line = new CVLineUI(application, this, cv);
             cvListPanel.add(line.getPanel());
         }
 
-        cvListPanel.invalidate();
         cvListPanel.revalidate();
+        cvListPanel.repaint();
+    }
+
+    public void refresh() {
+        refreshButton.doClick();
     }
 }

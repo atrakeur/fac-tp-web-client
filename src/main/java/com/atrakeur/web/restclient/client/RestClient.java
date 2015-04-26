@@ -67,8 +67,10 @@ public class RestClient {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Accept", "application/xml");
+        connection.setRequestProperty("Content-Type", "application/xml");
 
         //Write object to post data
+        connection.setDoOutput(true);
         OutputStream os = connection.getOutputStream();
         JAXBContext jc = JAXBContext.newInstance(CV.class);
         jc.createMarshaller().marshal(cv, os);
